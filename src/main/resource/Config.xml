@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util 
+    http://www.springframework.org/schema/util/spring-util.xsd">
+	
+	<util:list list-class="java.util.ArrayList" id="namesList">
+		<value>IPhone</value>
+		<value>Oppo</value>
+	</util:list>
+	
+	<util:set set-class="java.util.LinkedHashSet" id="modelsSet">
+		<value>15Pro</value>
+		<value>OP13</value>
+	</util:set>
+	
+	<util:map map-class="java.util.LinkedHashMap" id="priceMap">
+		<entry key="IPhone" value="1200.00"></entry>
+		<entry key="Oppo" value="1000.00"></entry>
+	</util:map>
+	
+	<util:properties id="notesProperties">
+		<prop key="1">Very Good</prop>
+		<prop key="2">Good</prop>
+		<prop key="3">Bad</prop>
+	</util:properties>
+	
+	<bean id="employee" class="com.app.Products">
+		<constructor-arg name="names" ref="namesList" />
+		<constructor-arg name="models" ref="modelsSet" />
+		<constructor-arg name="price" ref="priceMap" />
+		<constructor-arg name="notes" ref="notesProperties" />
+	</bean>
+
+</beans>
